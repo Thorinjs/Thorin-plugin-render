@@ -20,7 +20,7 @@ const SUPPORTED_ENGINES = ['nunjucks'];
 module.exports = function(thorin, opt, pluginName) {
   opt = thorin.util.extend({
     engine: 'nunjucks',
-    logger: pluginName,
+    logger: pluginName || 'render',
     path: 'app/views' // the default path of the view files, relative to thorin.root
   }, opt);
   const logger = thorin.logger(opt.logger);
@@ -42,7 +42,7 @@ module.exports = function(thorin, opt, pluginName) {
             engineObj.instance = require(engineObj.type);
           } catch(e) {
             if(e.code === 'MODULE_NOT_FOUND' && e.message.indexOf(engineObj.type) !== -1) {
-              logger.fatal(`Render engine module ${engineObj.type} not found. Please use: npm i --save ${engineObj.type}`);
+              logger.error(`Render engine module ${engineObj.type} not found. Please use: npm i --save ${engineObj.type}`);
             } else {
               throw e;
             }
@@ -68,8 +68,6 @@ module.exports = function(thorin, opt, pluginName) {
   thorin.on(thorin.EVENT.INIT, () => {
     renderIntentInit(thorin, renderObj, opt);
   });
-
-
-
+  renderObj.name = opt.logger;
   return renderObj;
 };
