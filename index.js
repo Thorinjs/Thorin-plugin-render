@@ -69,5 +69,6 @@ module.exports = function(thorin, opt, pluginName) {
     renderIntentInit(thorin, renderObj, opt);
   });
   renderObj.name = opt.logger;
+  renderObj.options = opt;
   return renderObj;
 };
