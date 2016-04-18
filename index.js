@@ -13,7 +13,7 @@ const path = require('path');
  */
 const renderActionInit = require('./lib/renderAction'),
   renderIntentInit = require('./lib/renderIntent'),
-  renderClassInit = require('./lib/renderClass');
+  renderEngineInit = require('./lib/engine');
 
 const SUPPORTED_ENGINES = ['nunjucks'];
 
@@ -61,7 +61,7 @@ module.exports = function(thorin, opt, pluginName) {
   }
 
   // Step one, create the renderer object.
-  const renderObj = renderClassInit(thorin, engineObj, opt);
+  const renderObj = renderEngineInit(thorin, engineObj, opt);
   // Step two, extend the thorin.Action
   renderActionInit(thorin, renderObj, opt);
   // Step three, extend the thorin.Intent, but after any other plugins that extend it.
