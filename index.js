@@ -72,3 +72,4 @@ module.exports = function(thorin, opt, pluginName) {
   renderObj.options = opt;
   return renderObj;
 };
+module.exports.publicName = 'render';
