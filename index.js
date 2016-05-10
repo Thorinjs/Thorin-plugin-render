@@ -70,6 +70,18 @@ module.exports = function(thorin, opt, pluginName) {
   });
   renderObj.name = opt.logger;
   renderObj.options = opt;
+
+  /* This will ensure that we have an app/views folder. */
+  renderObj.setup = function DoSetup(done) {
+    const SETUP_DIRECTORIES = ['app/views'];
+    for(let i=0; i < SETUP_DIRECTORIES.length; i++) {
+      try {
+        thorin.util.fs.ensureDirSync(path.normalize(thorin.root + '/' + SETUP_DIRECTORIES[i]));
+      } catch(e) {}
+    }
+    done();
+  }
+
   return renderObj;
 };
 module.exports.publicName = 'render';
