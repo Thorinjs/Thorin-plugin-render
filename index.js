@@ -35,7 +35,7 @@ module.exports = function(thorin, opt, pluginName) {
       };
       // check if we have it installed.
       try {
-        engineObj.instance = require(path.normalize(thorin.root + '/node_modules/' + engineObj.type));
+        engineObj.instance = require.main.require(engineObj.type);
       } catch(e) {
         if(e.code === 'MODULE_NOT_FOUND' && e.message.indexOf(engineObj.type) !== -1) {
           try {
