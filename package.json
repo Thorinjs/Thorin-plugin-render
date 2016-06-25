@@ -1,17 +1,17 @@
 {
   "name": "thorin-plugin-render",
   "author": "Stiudeo",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "dependencies": {},
   "description": "Thorin.js Render plugin",
   "main": "index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Stiudeo/Thorin-plugin-render"
+    "url": "https://github.com/Thorinjs/Thorin-plugin-render"
   },
   "homepage": "http://thorinjs.com",
   "bugs": {
-    "url": "https://github.com/Stiudeo/Thorin-plugin-render/issues"
+    "url": "https://github.com/Thorinjs/Thorin-plugin-render/issues"
   }
 }
